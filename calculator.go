@@ -60,7 +60,7 @@ letsgo:
 			d1, _ := strconv.Atoi(oper[0])
 			operation := oper[1]
 			d2, _ := strconv.Atoi(oper[2])
-			result := count(d1, d2, operation)
+			result := countforarab(d1, d2, operation)
 			if result == -1 {
 				fmt.Println("Ошибка: так как формат математической операции не удовлетворяет заданию — два операнда и один оператор через пробел (+, -, /, *)")
 			} else {
@@ -117,6 +117,21 @@ func count(d1, d2 int, operation string) int {
 		return d1 * d2
 	case "/":
 		return d1 / d2
+	}
+	return -1
+}
+
+func countforarab(d1, d2 int, operation string) float64 {
+
+	switch operation {
+	case "+":
+		return float64(d1) + float64(d2)
+	case "-":
+		return float64(d1) - float64(d2)
+	case "*":
+		return float64(d1) * float64(d2)
+	case "/":
+		return float64(d1) / float64(d2)
 	}
 	return -1
 }
